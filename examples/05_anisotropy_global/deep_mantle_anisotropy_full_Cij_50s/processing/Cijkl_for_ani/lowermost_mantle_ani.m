@@ -174,7 +174,7 @@ c56_tmp = c11_tmp;
 
 c66_tmp = c11_tmp;
 
-%populate the variables (a little crunchy but works just fine)
+%populate the variables (a little clunky but works just fine)
 
 for i = 1:length(depth)
 
