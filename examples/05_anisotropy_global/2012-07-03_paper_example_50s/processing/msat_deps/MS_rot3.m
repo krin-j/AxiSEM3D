@@ -16,8 +16,8 @@
 %                Default is [1 2 3].
 %
 % Notes:
-%     Angles are given in degrees and correspond to yaw, -dip and aximuth,
-%     respectvly. The rotations are applied in order, ie: alpha, then beta
+%     Angles are given in degrees and correspond to yaw, -dip and azimuth,
+%     respectively. The rotations are applied in order, ie: alpha, then beta
 %     then gamma (by default). The variables C, alp, bet and gam can be 
 %     arrays or scalars but (1) the angles must all be the
 %     same length and (2) either C or all the angles must be scalars unless
@@ -112,7 +112,7 @@ function [CR] = MS_rot3(C,alp,bet,gam,varargin)
             CR(:,:,i) = rot_3_scalar(C(:,:,i), a, b, b, orderV);
         end
     elseif ((numrs > 1) && (numdimCs == 3))
-        % List of rotatiosn and matrices case
+        % List of rotation and matrices case
         assert((numrs == size(C, 3)), 'MS:ListsMustMatch', ...
             'The length of the lists of rotations and matrices must match');
         CR = zeros(6,6,size(C, 3));

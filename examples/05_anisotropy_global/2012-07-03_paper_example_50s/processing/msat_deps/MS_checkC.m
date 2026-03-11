@@ -24,7 +24,7 @@
 %
 %  Notes:
 %  Currently, the following properties of the input elastic stiffness
-%  matrix, C, are tested: (1) The maxtrix must be of rank 2 and size (6,6).
+%  matrix, C, are tested: (1) The matrix must be of rank 2 and size (6,6).
 %  (2) The matrix must be symmetrical along the leading diagonal (i.e. 
 %  the major symmetry of the elastic constants tensor, Cijkl == Cklij, must
 %  be present). (3) The matrix must be positive-definite and be none zero

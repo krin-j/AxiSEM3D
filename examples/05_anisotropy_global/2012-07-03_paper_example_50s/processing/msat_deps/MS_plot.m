@@ -3,7 +3,7 @@
 % // Part of MSAT - The Matlab Seismic Anisotropy Toolkit //
 %
 % Given an elasticity matrix and density, produce pole figures showing 
-%     the P- and S-wave anisotrpy. 
+%     the P- and S-wave anisotropy. 
 %
 %  % MS_plot(C, rh, ...)
 %
@@ -25,7 +25,7 @@
 %          colormap, or a string describing a function to generate such a 
 %          matrix (such as the built-in MATLAB colormap functions). E.g.:
 %             MS_plot(C,rh,'cmap','cool(64)') - uses the MATLAB function cool
-%                to generate a cyan-to-purple colourmap.
+%                to generate a cyan-to-purple colormap.
 %          The default is 'jet', reversed so blue is fast/high, as is 
 %          conventional for seismic velocity colorscales. 
 %
@@ -56,7 +56,7 @@
 %          white "background" marker with a length set by s1 (defaults to
 %          0.18) and width set by w1 (defaults to 3.0) and an inner black
 %          marker with width set by w2 (defaults to 2.0) and length set by
-%          s2 (defaults to 0.18). A useful "neet" alternitive to the
+%          s2 (defaults to 0.18). A useful "neat" alternative to the
 %          default is s1 = 0.18, s2 = 0.16, w1 = 2.0 and w2 = 1.0.
 %
 %     MS_plot(..., 'plotmap', pmap)
@@ -129,7 +129,7 @@
 function MS_plot(C,rh,varargin)
 %=========================================================================
 
-%  ** Set defaults, these can be overriden in the function call
+%  ** Set defaults, these can be overridden in the function call
 %  ** configure contouring options
       cvect = 10 ;     % number of contours
       VPcvect = cvect ;
@@ -139,7 +139,7 @@ function MS_plot(C,rh,varargin)
 %  ** Put markers on SWS pol plot. 
       limitsonpol = 0;
    
-%  ** Scaling for SWS plo plot.
+%  ** Scaling for SWS pol plot.
       qwhite_scale = 0.18;
       qblack_scale = 0.18;
       qwhite_width = 3.0;
@@ -431,7 +431,7 @@ function MS_plot(C,rh,varargin)
                       end
                       
                   otherwise
-                      error('MS:PLOT:BADPLOTMAP', ['An elelment of the '...
+                      error('MS:PLOT:BADPLOTMAP', ['An element of the '...
                           'plotmap was not recognised']);
               end
           end

@@ -2,14 +2,14 @@
 %
 % // Part of MSAT - The Matlab Seismic Anisotropy Toolkit //
 %
-% Calculate the phase velocity details for an elsticity matrix. 
+% Calculate the phase velocity details for an elasticity matrix. 
 %
 %  [ pol, avs, vs1, vs2, vp, ...] = MS_phasevels( C, rh, inc, azi )
 %
 % Usage: 
 %     [ pol, avs, vs1, vs2, vp ] = MS_phasevels( C, rh, inc, azi )                    
 %         Calculate phase velocities from elasticity matrix C (in GPa) and
-%         density rh (in kg/m^3) for a propogation direction defined by
+%         density rh (in kg/m^3) for a propagation direction defined by
 %         an inclination and azimuth (both in degrees, see below). Output 
 %         details are given below.
 %
@@ -202,7 +202,7 @@ function [c] = V_cross(a, b)
     % This is ~10 times quicker than the Matlab cross() function
     % for me (AMW). We assume the arguments are both 3-vectors and
     % avoid the checks and reshaping needed for the more general case.
-    % (According to the prfiler, this moves cross from the most expensive
+    % (According to the profiler, this moves cross from the most expensive
     % child function costing ~50% of the time to the third most expensive 
     % child costing ~10% of the time).
 
@@ -214,12 +214,12 @@ return
 
 
 %=======================================================================================
-% Rather useing a general case rotation about three angles we use two 
+% Rather using a general case rotation about three angles we use two 
 % special case rotations around the c and b axes. This saves time as
 % we don't need to convert 0 degrees to radians six times per call to 
 % phasevels, or do two double matrix multiplications. This saves ~60%
 % of the time spent in vector rotation (and, with the cross thing above)
-% reduces the 10000 evaulations needed for MS_anisotropy lma from ~19
+% reduces the 10000 evaluations needed for MS_anisotropy lma from ~19
 % secs to ~10 secs.
 
 function [VR] = V_rot_gam(V,gam)
@@ -248,7 +248,7 @@ return
 %=======================================================================================  
 	function [X] = cart2(inc,azm)
 %=======================================================================================  
-%c convert from spherical to cartesian co-ordinates
+%c convert from spherical to cartesian coordinates
 %c north x=100  west y=010 up z=001
 %c irev=+1 positive vector x
 %c irev=-1 negative vector x
@@ -297,7 +297,7 @@ return
 % calculate velocities and sort
 % note that we could get a significant speedup if
 % we could avoid the sort - LAPACK usually does sort
-% in order of incresing eigenvectors but I've found 
+% in order of increasing eigenvectors but I've found 
 % cases where this does not happen (and we swap P and 
 % S wave velocities). Note that MATLAB does not "guarantee
 % that the eignevalues are not returned in sorted order"

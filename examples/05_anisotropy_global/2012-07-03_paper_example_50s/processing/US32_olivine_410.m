@@ -72,7 +72,7 @@ depth = [10:10:1000];
 %interpolate rho to model depths
 rho = interp1(depth_stw05,density_stw05,depth);
 
-%% A little crunky but works: Create elastic tensor for every lat-lon-depth
+%% A little crunchy but works: Create elastic tensor for every lat-lon-depth
 stop_at_depth = 410; %km
 stop_index = stop_at_depth/10;
 

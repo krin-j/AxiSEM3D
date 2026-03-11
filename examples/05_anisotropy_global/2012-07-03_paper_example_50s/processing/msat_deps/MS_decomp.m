@@ -16,7 +16,7 @@
 %     
 %
 % Notes:
-%     Output matricies are the partial components of the input elasticity
+%     Output matrices are the partial components of the input elasticity
 %     matrix which maximise the norm of the high symmetry parts. This 
 %     function assumes that C is in its optimal orientation for 
 %     decomposition (use MS_axes to make this so).

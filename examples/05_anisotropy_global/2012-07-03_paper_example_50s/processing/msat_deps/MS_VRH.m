@@ -2,8 +2,8 @@
 %
 % // Part of MSAT - The Matlab Seismic Anisotropy Toolkit //
 %
-% Given n elasticity matricies, densities and phase volume fractions, 
-%     calculate the avarage of the Voigt upper and Reuss lower bound of the 
+% Given n elasticity matrices, densities and phase volume fractions, 
+%     calculate the average of the Voigt upper and Reuss lower bound of the 
 %     composite material. 
 %
 %  %  [Cave,rhave]=MS_VRH(VF, C, rh, ...)
@@ -15,9 +15,9 @@
 %          matrix. 
 %
 %     [Cave,rhave]=MS_VRH(VF, C1, rh1, C2, rh2, C3, rh3, ...)                    
-%          Alternitivly, VF can be a vector of volume fractions and the 
-%          elasticity matricies and densities given as sequence of arguments
-%          as (6,6) matricies and scalars. There should be a C,rho argument 
+%          Alternatively, VF can be a vector of volume fractions and the 
+%          elasticity matrices and densities given as sequence of arguments
+%          as (6,6) matrices and scalars. There should be a C,rho argument 
 %          pair for each entry in the VF vector.
 %
 %     [Cave,rhave,Cvoigt,Creuss]=MS_VRH(VF, C, rh, ...)                    
@@ -71,7 +71,7 @@ function [Cave,rhave,voigt_ave,reuss_ave]=MS_VRH(VF,C,r,varargin)
    optargs = size(varargin,2);
    if (optargs == 0)
        % VF, C and r should be arrays of size (n), (6,6,n) and (n),
-       % respectivly. Check this and proceed.
+       % respectively. Check this and proceed.
        np = length(VF) ;% Number of phases
        sc = size(C);
        assert(length(sc) == 3, 'MS:VRH:args', ... 
@@ -89,7 +89,7 @@ function [Cave,rhave,voigt_ave,reuss_ave]=MS_VRH(VF,C,r,varargin)
    elseif (optargs > 0)
        % The old interface - VF should be a size (n) and we should see 2n-2
        % varargs in pairs of size (6,6) for Cs and scalars for the
-       % densitys. Check this here then put the values into optargs == 0
+       % densities. Check this here then put the values into optargs == 0
        % format.
        np = length(VF); % Number of phases
        assert((np*2)-2  == (length(varargin)), 'MS:VRH:args', ...

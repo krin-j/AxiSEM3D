@@ -17,7 +17,7 @@
 %% and elastic tensors from:
 %% NM Creasy and L Miyagi and MD Long, A Library of Elastic Tensors for 
 %% Lowermost Mantle Seismic Anisotropy Studies and Comparison With Seismic 
-%% Observations, 2020
+%% Observations, 2020.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear all
@@ -174,7 +174,7 @@ c56_tmp = c11_tmp;
 
 c66_tmp = c11_tmp;
 
-%populate the variables (a little cruncky but works just fine)
+%populate the variables (a little crunchy but works just fine)
 
 for i = 1:length(depth)
     

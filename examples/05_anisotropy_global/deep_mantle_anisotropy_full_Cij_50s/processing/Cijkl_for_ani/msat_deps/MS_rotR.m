@@ -13,11 +13,11 @@
 % Notes:
 %    The rotation is performed without transforming the elasticity 
 %    matrix to the full tensor form following the method described in
-%    Bowers. This eleminates eight nested loops and replaces them with pure
+%    Bowers. This eliminates eight nested loops and replaces them with pure
 %    matrix-matrix operations, which is (~30 times) faster in Matlab. 
 %    Unlike the other MSAT rotation functions, C and R cannot be lists but
-%    must be 6x6 and 3x3 matricies, respectivly. Furthermore, the
-%    corectness of the input arguments are not checked. Users are encoraged
+%    must be 6x6 and 3x3 matrices, respectively. Furthermore, the
+%    correctness of the input arguments are not checked. Users are encouraged
 %    to make use of MS_rot3 or MS_rotEuler for most rotation operations -
 %    these make use of this function internally.
 %
