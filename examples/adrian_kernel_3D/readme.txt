@@ -24,12 +24,6 @@ Validated scope
   - P400P phase cross-correlation time-shift kernel (vp)
   - Moho topography interface kernel (K_SS) with topography contour overlay
 
-NOT validated (do not extrapolate this example to):
-  - Period ranges outside the tested set
-  - Kernel types beyond vp and Moho interface
-  - S362ANI models without the amplitude rescaling applied here
-
-
 External dependency
 -------------------
 This companion example assumes that `AxiSEM3D_Kernels` has been cloned as a
