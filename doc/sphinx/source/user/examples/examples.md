@@ -1,6 +1,6 @@
  # Examples
 
-Example input files for and post-processing scripts can be found in two places:  
+Example input files and post-processing scripts can be found in two places:  
  * ```examples/``` folder in the main repository provide example problems that are good starting points or "cookbooks" for more complex models.
  * [AxiSEM3D Gallery](https://github.com/AxiSEMunity) is a repository for published models.
 
