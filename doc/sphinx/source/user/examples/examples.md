@@ -9,7 +9,7 @@ Example input files for and post-processing scripts can be found in two places:
 
  1. Create a new folder inside the ```examples/``` folder following the established naming scheme.  Use a short descriptive name to identify its contents.
  2. All input files should be included in an ```input/``` folder in your new folder.
- 3. Create a ```README.md``` file. Include a description of the cookbook. The description can include methods, proper (or improper) uses, figures, proper citation (bibtek preferred), etc. This ```README.md``` is included in the documentation.
+ 3. Create a ```README.md``` file. Include a description of the cookbook. The description can include methods, proper (or improper) uses, figures, proper citation (bibtex preferred), etc. This ```README.md``` is included in the documentation.
  4. Other files.  Include .ipynb for post processing and helpful .sh scripts if needed.
 
 ## Table of Contents
