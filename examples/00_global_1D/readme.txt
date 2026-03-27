@@ -1,10 +1,19 @@
-# to generate mesh (already done in the input folders)
-python -m salvus_mesh_lite.interface AxiSEM --basic.model prem_ani --basic.period 50 --output_file global_mesh__prem_ani__50s.e
+# Example 00 — Global 1D (PREM)
+# ==============================
+# A global simulation using a 1D PREM (anisotropic) Earth model.
+# Source: 2011 Virginia earthquake (Mw 5.8)
+# Stations: GSN global network + USArray transportable array
+# Period: 50 s
 
-# the 3D model S362ANI is downloaded from IRIS EMC (already done in input3D)
+# The mesh has already been generated and is provided in input/.
+# To regenerate it:
+#   python -m salvus_mesh_lite.interface AxiSEM --basic.model prem_ani --basic.period 50 --output_file input/global_mesh__prem_ani__50s.e
 
-# to run the simulations, copy the compiled binary (axisem3d) here and do
-. run1D.sh  # takes about 4 minutes using 4 cores
-. run3D.sh  # takes about 35 minutes using 4 cores
+# To run the simulation (~4 minutes on 4 cores):
+#   cp path/to/axisem3d .
+#   mpirun -np 4 ./axisem3d input/
 
-# use post_processing.ipynb to visualize the results
+# Output will be written to output/ inside this folder.
+
+# Use post_processing.ipynb to visualize seismograms and USArray animations.
+# This notebook is set up for the 1D simulation only.
