@@ -15,7 +15,7 @@
 
 #include "eigen_mesh.hpp"
 
-namespace metis {
+namespace axisem3d::metis {
   // form neighbourhood of connectivity
   void
   formNeighbourhood(
@@ -29,6 +29,6 @@ namespace metis {
       int npart,
       int rseed,
       eigen::IColX& elemRank);
-} // namespace metis
+} // namespace axisem3d::metis
 
 #endif /* metis_hpp */
