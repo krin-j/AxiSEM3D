@@ -88,6 +88,13 @@ setDefault(USE_DOUBLE                  OFF)
 ################# cmake setup #################
 # project
 cmake_minimum_required(VERSION 3.26)
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+  message(FATAL_ERROR
+    "In-source builds are not allowed. Use a separate build directory, for example:\n"
+    "  cmake -S ${CMAKE_SOURCE_DIR} -B build\n"
+    "  cmake --build build")
+endif()
+
 project(AxiSEM3D)
 include(CTest)
 
