@@ -22,4 +22,4 @@ mpirun -np 4 ./axisem3d input/
 This simulation should take around 35 minutes on 4 cores, and the output will be written to output/ inside this folder.
 
 Use **post_processing.ipynb** to visualize seismograms and USArray animations.
-To compare 1D and 3D results, first run **/example 00_global_1D** and point the notebook to both output directories (see instructions in the notebook).
+To compare 1D and 3D results, first run the example in **/00_global_1D** and point the notebook to both output directories (see instructions in the notebook).
