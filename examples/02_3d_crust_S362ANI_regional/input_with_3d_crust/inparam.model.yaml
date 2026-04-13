@@ -59,12 +59,12 @@ absorbing_boundary:
     #          (so that all model boundaries will be stress-free)
     #       3) the most common case in seismology is [RIGHT, BOTTOM]
     boundaries: [RIGHT, BOTTOM]
-
+    
     # what: enable the Clayton-Enquist approach
     # type: bool
     # note: the simplest linear approach by Clayton & Engquist (1977)
     enable_Clayton_Enquist: true
-
+    
     # the sponge approach by Kosloff & Kosloff (1986)
     Kosloff_Kosloff:
         # what: enable the Kosloff-Kosloff approach
@@ -72,7 +72,7 @@ absorbing_boundary:
         # note: Clayton-Enquist and Kosloff-Kosloff can be used together,
         #       but one of them has to be enabled at least
         enable: true
-
+        
         # what: relative spans of the sponge layers
         # type: array of double
         # note: 1) must be presented in the same order as absorbing_boundaries
@@ -86,7 +86,7 @@ absorbing_boundary:
         #          wave propagation and analysis
         #       3) allowed range: .01 ~ 0.25
         relative_spans: [.05, .05]
-
+        
         # what: expression of γ-factor in solid domain
         # type: math expression
         # note: 1) γ-factor represents the absorbing strength at a point
@@ -104,7 +104,7 @@ absorbing_boundary:
         #       4) the default is an empirical expression from
         #          Haindl et al., 2020
         gamma_expr_solid: 1.1 / T0 * (VS / VP)^2 * exp(-0.04 * SPAN / (VP * T0))
-
+        
         # what: expression of γ-factor in fluid domain
         # type: math expression
         # note: same as gamma_expr_solid but without VS dependency

@@ -116,7 +116,7 @@ list_of_station_groups:
             # type: string / array of double
             # only: FULL / [t0, t1]
             # note: use FULL to record the whole simulation
-            time_window: [0, 3600]
+            time_window: FULL
         # file options
         file_options:
             # what: output file format
@@ -145,8 +145,8 @@ list_of_station_groups:
             #          con: hits output performance if buffer_size is small
             #       2) this parameter does not affect the final results
             flush: true
-    #==========================================================================#
-    # this key can be arbitrary but must be unique in this list
+
+
 ############################# element-wise #############################
 # what: list of element groups
 # type: array of objects

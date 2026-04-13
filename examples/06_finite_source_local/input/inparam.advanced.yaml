@@ -21,7 +21,7 @@ verbose:
     # what: verbosity level
     # type: string
     # only: NONE / ESSENTIAL / DETAILED
-    level: DETAILED
+    level: ESSENTIAL
 
     # what: show/hide runtime warnings
     # type: bool
@@ -54,9 +54,10 @@ mpi:
     
     # what: weight for load balancing
     # type: string
-    # only: ELEMENT / ELEMENT_POINT
+    # only: ELEMENT / ELEMENT_POINT / NR
     # note: 1) ELEMENT:       use cost measurement on elements
     #       2) ELEMENT_POINT: use cost measurement on both elements and points
+    #       3) NR:            notiming, uses Nr(s,z) weights (reproducible)
     weight_for_load_balancing: ELEMENT_POINT
 
     # what: plot domain decomposition
