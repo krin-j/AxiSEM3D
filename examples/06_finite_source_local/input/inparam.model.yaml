@@ -84,9 +84,9 @@ absorbing_boundary:
         #          bottom will be determined as 110 * 0.05 = 5.5 km, leaving
         #          an unaffected depth range from 0 to 104.5 km for normal
         #          wave propagation and analysis
-        #          allowed range: .01 ~ 0.25
+        #       3) allowed range: .01 ~ 0.25
         relative_spans: [.1, .1]
-       
+        
         # what: expression of γ-factor in solid domain
         # type: math expression
         # note: 1) γ-factor represents the absorbing strength at a point
@@ -109,7 +109,8 @@ absorbing_boundary:
         # type: math expression
         # note: same as gamma_expr_solid but without VS dependency
         gamma_expr_fluid: 1.76 / T0 * exp(-0.08 * SPAN / (VP * T0))
- 
+
+
 ######################## attenuation ########################
 # what: attenuation mode
 # type: string
