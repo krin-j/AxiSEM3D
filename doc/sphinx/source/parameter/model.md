@@ -61,7 +61,7 @@ or axial one is non-physical)
   stress-free
 3) the most common case in seismology is [RIGHT, BOTTOM]
   
-**parameter name**:  enable_Clayton_Enquist<br>
+**parameter name**:  enable_Clayton_Enquist
 **what**:  enable the Clayton-Enquist approach.  
 **type**: bool  
 **default:**   
@@ -90,7 +90,7 @@ Note:
 3) allowed range: .01 ~ 0.25<br>
 </div>
 <br>
-<div style="margin-left:50px;">      
+<div style="margin-left:48px;">      
 <b>parameter name</b>: gamma_expr_solid<br>
 <b>what</b>: expression of γ-factor in solid domain<br>
 <b>type</b>: math expression<br>
@@ -105,7 +105,7 @@ Note: </span><br>
 - VP, VS: P- and S- wave velocities at the point<br>
 - RHO   : density at the po<br>
 </div>
-<div style="margin-left:50px;">
+<div style="margin-left:60px;">
 * VP, VS and RHO are the 1D values in the Exodus mesh<br>
 3) this expression will be further multiplied by a pattern
 function that equals to 1 on the outermost edge of the
@@ -115,9 +115,9 @@ pattern is automatically handled by the solvers<br>
 4) the default is an empirical expression from
 Haindl et al., 2020<br>
 </div>
-<div style="margin-left:50px;">
+<div style="margin-left:48px;">
 <br>       
-<b>parameter name</b>:   gamma_expr_fluid<br>
+<b>parameter name</b>:   gamma_expr_fluid<<br>
 <b>what</b>:  expression of γ-factor in fluid domain<br>
 <b>type</b>:math expression<br>
 <b>default:</b>  <br> 
@@ -155,14 +155,14 @@ Note:
 1) the order in this list can affect the final 3D model
 2) use [] if no 3D model presents
 
-<span style="margin-left:50px;">**key**: arbitrary names</span><br>
+<span style="margin-left:48px;">**key**: arbitrary names</span><br>
 
-<div style="margin-left:50px;">
+<div style="margin-left:60px;">
 <b>parameter name</b>:  activated<br>
 <b>what</b>: activate this model<br>
 <b>type</b>:  bool<br>
 <b>default:</b>  <br> 
-<br>
+
 
 <b>parameter name</b>:  class_name<br>
 <b>what</b>: class name<br>
@@ -178,7 +178,7 @@ Note: current built-in classes include:
 </div>  
 <br>
 
-<div style="margin-left:50px;">
+<div style="margin-left:60px;">
 <b>parameter name</b>:  nc_data_file<br>
 <b>what</b>: NetCDF data file for SStructuredGridV3<br>
 <b>type</b>: filename<br>
@@ -190,7 +190,7 @@ Parameters for grid coordinates<br>
 </div> 
 <div style="margin-left:70px;">
 <b>parameter name</b>: horizontal<br>
-<b>what</b>: type of horizontal coordinates<br>
+<b>what</b>:type of horizontal coordinates<br>
 <b>type</b>: string<br>
 <b>only</b>: DISTANCE_AZIMUTH / XY_CARTESIAN / LATITUDE_LONGITUDE<br>
 <b>default:</b>  <br> 
@@ -257,7 +257,7 @@ the model range slightly to allow for numerical errors<br>
 3) this parameter safely realizes inplane discontinuities<br>
 <br>
 </div>
-<div style="margin-left:50px;">  
+<div style="margin-left:60px;">  
 <b>Subsection:</b>   properties    <br>    
 Parameters for properties<br>
 </div>
@@ -318,7 +318,7 @@ Note: For any property X: <br>
 p X_3D = (1 + value_in_file) * (X_3D - X_1D) + X_1D  <br> 
 </div>      
 <br> 
-<div style="margin-left:50px;">   
+<div style="margin-left:60px;">   
 <b>parameter name</b>:  store_grid_only_on_leaders<br> 
 <b>what</b>: store grid data only on the leader processors<br> 
 <b>type</b>: bool<br> 
