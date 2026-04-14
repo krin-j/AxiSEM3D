@@ -17,6 +17,8 @@ extern "C" {
 }
 
 #ifdef _USE_PARALLEL_NETCDF
+// stop netCDF from including mpicxx headers:
+#define MPICH_SKIP_MPICXX
 extern "C" {
 #include <netcdf_par.h>
 }

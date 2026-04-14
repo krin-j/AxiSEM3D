@@ -26,7 +26,7 @@ set(ADDITIONAL_LINK_OPTIONS "${links}")
 
 ################## dependencies ##################
 # parallel NetCDF is supported but not mandatory
-set(USE_PARALLEL_NETCDF OFF CACHE STRING "If ON, use parallel NetCDF. Optional.")
+set(USE_PARALLEL_NETCDF OFF CACHE BOOL "If ON, use parallel NetCDF. Optional.")
 
 ################## solver options ##################
 # polynomial order of spectral elements (from 1 to 8)
