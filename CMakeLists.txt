@@ -27,7 +27,6 @@ set(ADDITIONAL_LINK_OPTIONS "${links}")
 ################## dependencies ##################
 # preferred installation prefix of dependencies
 set(FFTW_ROOT                   ${fftw})
-set(METIS_ROOT                  ${metis})
 
 # parallel NetCDF is supported but not mandatory
 set(USE_PARALLEL_NETCDF OFF CACHE STRING "If ON, use parallel NetCDF. Optional.")
@@ -64,7 +63,6 @@ endmacro()
 setDefault(ADDITIONAL_CXX_FLAGS        "")
 setDefault(ADDITIONAL_LINK_OPTIONS     "")
 setDefault(FFTW_ROOT                   "<empty>")
-setDefault(METIS_ROOT                  "<empty>")
 setDefault(NPOL_SEM                    4)
 setDefault(USE_DOUBLE                  OFF)
 
@@ -162,9 +160,38 @@ find_package(FFTW REQUIRED)
 include_directories(${FFTW_INCLUDES})
 
 # metis
-# FindMETIS.cmake uses METIS_DIR instead of METIS_ROOT in HINTS
-set(METIS_DIR "${METIS_ROOT}")
-find_package(METIS REQUIRED)
+set(METIS_DIR "$ENV{METIS_DIR}" CACHE PATH "An optional hint to a METIS installation")
+
+# metis: try CMake package config (some CMake-built installs); fall back to FindMETIS.cmake
+# User prefix is METIS_ROOT (e.g. -Dmetis=$CONDA_PREFIX). Do not pre-set METIS_DIR: CMake sets
+# METIS_DIR from find_package(METIS CONFIG) and may leave METIS_DIR-NOTFOUND on failure, which
+# would break FindMETIS.cmake unless we override before the MODULE search.
+set(METIS_DIR_BACKUP "${METIS_DIR}")
+find_package(METIS QUIET CONFIG HINTS "${METIS_DIR}" PATHS "${METIS_DIR}" "$ENV{METIS_DIR}")
+if(NOT METIS_FOUND)
+  message(STATUS "METIS CMake package not found; using FindMETIS.cmake fallback...")
+  set(METIS_DIR "${METIS_DIR_BACKUP}" CACHE PATH "" FORCE)
+  # MODULE mode does not accept HINTS/PATHS (CMake 4+); hints are via METIS_DIR cache above.
+  find_package(METIS REQUIRED MODULE)
+endif()
+# Map config-package names to METIS_* used below (FindMETIS.cmake sets these directly).
+if(NOT METIS_INCLUDE_DIRS)
+  if(METIS_INCLUDE_DIR)
+    set(METIS_INCLUDE_DIRS "${METIS_INCLUDE_DIR}")
+  elseif(TARGET METIS::metis)
+    get_target_property(_metis_iface_includes METIS::metis INTERFACE_INCLUDE_DIRECTORIES)
+    if(_metis_iface_includes AND NOT _metis_iface_includes MATCHES "-NOTFOUND$")
+      set(METIS_INCLUDE_DIRS "${_metis_iface_includes}")
+    endif()
+  endif()
+endif()
+if(NOT METIS_LIBRARIES)
+  if(TARGET METIS::metis)
+    set(METIS_LIBRARIES METIS::metis)
+  elseif(METIS_LIBRARY)
+    set(METIS_LIBRARIES "${METIS_LIBRARY}")
+  endif()
+endif()
 include_directories(${METIS_INCLUDE_DIRS})
 
 # NetCDF: try CMake package config first (conda, CMake-built installs); fall back to FindNetCDF.cmake
@@ -431,18 +458,18 @@ message("     * Eigen3")
 msglist("       user-specified root: " "${EIGEN3_DIR}")
 msglist("       found include paths: " "${EIGEN3_INCLUDE_DIR}")
 message("     * Boost")
-msglist("       user-specified root: " "${BOOST_ROOT}")
+msglist("       user-specified root: " "${BOOST_DIR}")
 msglist("       found include paths: " "${Boost_INCLUDE_DIRS}")
 message("     * FFTW3")
 msglist("       user-specified root: " "${FFTW_ROOT}")
 msglist("       found include paths: " "${FFTW_INCLUDES}")
 msglist("       linked to libraries: " "${FFTW_LIBRARIES}")
 message("     * METIS")
-msglist("       user-specified root: " "${METIS_ROOT}")
+msglist("       user-specified root: " "${METIS_DIR}")
 msglist("       found include paths: " "${METIS_INCLUDE_DIRS}")
 msglist("       linked to libraries: " "${METIS_LIBRARIES}")
 message("     * NetCDF")
-msglist("       user-specified root: " "${NETCDF_ROOT}")
+msglist("       user-specified root: " "${NETCDF_DIR}")
 msglist("       found include paths: " "${NETCDF_INCLUDES}")
 msglist("       linked to libraries: " "${NETCDF_LIBRARIES}")
 msglist("       use parallel NetCDF: " "${USE_PARALLEL_NETCDF}")
